@@ -5,6 +5,22 @@ import { posix } from 'node:path';
 const apiTarget = 'http://127.0.0.1:3007';
 const proxy = { '/api': { target: apiTarget, changeOrigin: false } };
 
+const githubPagesBuild = process.env.GITHUB_PAGES === 'true';
+const siteBase = githubPagesBuild ? '/sete-passos-site/' : '/';
+
+function githubPagesLinks() {
+  return {
+    name: 'sete-passos-github-pages-links',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html) {
+        if (!githubPagesBuild) return html;
+        const pagesWithAssets = html.replace(/(["'=])\/(assets|fonts)\//gi, (_match, prefix, folder) => `${prefix}${siteBase}${folder}/`);
+        return pagesWithAssets.replace(/(["'=])\/(index|sobre|historias|equipe|login|perfil|admin|fichas)\.html(?=[?#"'\s)])/gi, (_match, prefix, page) => `${prefix}${siteBase}${page}.html`);
+      },
+    },
+  };
+}
 function inlineHomepageStylesheet() {
   return {
     name: 'sete-passos-inline-homepage-css',
@@ -127,7 +143,8 @@ export function adminGate(target = apiTarget) {
 }
 
 export default defineConfig({
-  plugins: [inlineHomepageStylesheet(), {
+  base: siteBase,
+  plugins: [githubPagesLinks(), inlineHomepageStylesheet(), {
     name: 'sete-passos-private-pages',
     configureServer(server) { server.middlewares.use(profileGate()); server.middlewares.use(adminGate()); },
     configurePreviewServer(server) { server.middlewares.use(profileGate()); server.middlewares.use(adminGate()); },
