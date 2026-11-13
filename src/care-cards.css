@@ -1,0 +1,51 @@
+/* Four permanent cards in normal flow; pointer tilt stays on the inner surface. */
+.care-section { display: block; background: var(--white); }
+.care-scene { padding-block: var(--section-space); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+.care-scene .section-heading { width: min(calc(100% - 3rem), 48rem); }
+.care-scene .section-heading h2 { margin-top: .75rem; font-size: clamp(2rem, 3vw, 2.75rem); }
+.care-scene .section-heading > p:not(.section-label) { margin-top: .75rem; line-height: 1.65; max-width: 34rem; }
+.care-cards { width: min(calc(100% - 3rem), 70rem); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; gap: 1.5rem; margin-inline: auto; }
+.care-card { width: 100%; position: relative; min-width: 0; perspective: 800px; }
+.tilted-card-inner { height: 100%; display: flex; flex-direction: column; position: relative; background: var(--white); border: 1px solid var(--line); border-radius: 1.25rem; box-shadow: 0 12px 36px -24px rgb(7 30 60 / 30%); transform-style: preserve-3d; }
+.care-card-art { position: relative; border-radius: 1.2rem 1.2rem 0 0; overflow: hidden; background: var(--ice); }
+.tilted-card-img { width: 100%; height: auto; aspect-ratio: 640 / 260; object-fit: cover; }
+.care-card-number { position: absolute; left: 1.25rem; top: 1.125rem; color: var(--navy); font-size: .875rem; font-weight: 500; letter-spacing: .08em; }
+.care-card:nth-child(1) .care-card-number { color: #315c80; }
+.care-card:nth-child(2) .care-card-number { color: var(--accent-violet); }
+.care-card:nth-child(3) .care-card-number { color: var(--accent-sage); }
+.care-card:nth-child(4) .care-card-number { color: var(--accent-berry); }
+.tilted-card-overlay { padding: 1.25rem 1.5rem .75rem; flex: 1; display: flex; flex-direction: column; transform: translateZ(20px); }
+.tilted-card-overlay h3 { font-size: 1.5rem; line-height: 1.2; }
+.care-card-caption { color: var(--muted); font-size: .875rem; line-height: 1.6; margin-top: .5rem; }
+.care-card-description { margin-top: .875rem; font-size: 1rem; line-height: 1.75; color: var(--muted); }
+.care-card .area-link { margin-top: auto; padding-top: .75rem; justify-content: space-between; font-size: 1rem; min-height: 3.5rem; }
+.care-card .area-link:hover { color: var(--navy); }
+.care-bottom { text-align: center; }
+.care-bottom .care-note { margin: 0; display: block; font-size: .875rem; }
+.care-bottom .text-link { justify-content: center; margin-top: .25rem; }
+@media (min-width: 1000px) and (min-height: 820px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .care-cards { height: min(690px, calc(100svh - 170px)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 1rem; perspective: 1400px; isolation: isolate; }
+  .care-cards::before, .care-cards::after { position: absolute; z-index: -1; inset: 0; pointer-events: none; content: ""; opacity: var(--care-glow, 0); }
+  .care-cards::before { background: radial-gradient(ellipse at 50% 48%, rgb(137 200 238 / 29%), transparent 62%); filter: blur(38px); }
+  .care-cards::after { background: linear-gradient(118deg, transparent 26%, rgb(178 230 237 / 20%) 48%, transparent 66%); }
+  .care-card { min-height: 0; transform-style: preserve-3d; }
+  .care-card-art { flex: 0 0 8.1rem; }
+  .tilted-card-img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; }
+  .tilted-card-overlay { min-height: 0; padding: .9rem 1.15rem .55rem; }
+  .tilted-card-overlay h3 { font-size: 1.3rem; }
+  .care-card-caption { margin-top: .3rem; }
+  .care-card-description { margin-top: .45rem; font-size: .9375rem; line-height: 1.55; }
+  .care-card .area-link { min-height: 2.8rem; padding-top: .45rem; font-size: .9375rem; }
+}
+@media (max-width: 699px) {
+  .care-cards { grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 1.5rem; }
+  .care-card { width: min(100%, 32rem); }
+  .care-scene { padding-block: var(--section-space); }
+  .tilted-card-overlay { padding-inline: 1.25rem; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .care-card, .tilted-card-inner, .tilted-card-overlay { transform: none !important; }
+}
+@media (prefers-contrast: more) {
+  .tilted-card-inner { border-color: var(--navy); box-shadow: none; }
+}

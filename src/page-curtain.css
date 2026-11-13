@@ -1,0 +1,18 @@
+:root {
+  --curtain-color: var(--navy);
+  --curtain-text: var(--white);
+}
+.page-curtain-stage { position: relative; }
+.page-curtain-content { min-height: 100svh; }
+/* Only the fixed curtain clips; clipping the page wrapper would break sticky navigation. */
+.page-curtain { position: fixed; inset: 0; z-index: 1000; overflow: hidden; display: grid; place-items: center; background: var(--curtain-color); color: var(--curtain-text); contain: paint; }
+.curtain-copy { position: relative; text-align: center; width: 100%; padding: 1.5rem; }
+.curtain-brand, .curtain-caption { display: block; font-size: .625rem; letter-spacing: .22em; }
+#page-curtain-title { font-family: var(--serif); font-size: clamp(4rem, 14vw, 12rem); line-height: 1.15; letter-spacing: -.045em; font-style: italic; margin: 1.75rem 0 2rem; }
+.curtain-rule { position: absolute; inset: 1.5rem; border: 1px solid rgb(255 255 255 / 16%); pointer-events: none; }
+.is-navigating, .is-navigating * { cursor: progress !important; }
+.is-navigating #page-content { pointer-events: none; }
+.navigation-error { position: fixed; z-index: 1010; bottom: 1rem; left: 1rem; right: 1rem; width: fit-content; max-width: calc(100% - 2rem); margin-inline: auto; background: var(--navy); color: var(--white); padding: 1rem 1.25rem; border-radius: .75rem; font-size: .8125rem; line-height: 1.6; box-shadow: 0 8px 30px rgb(7 30 60 / 20%); }
+/* The opaque curtain handles movement. Suppress the API's additional crossfade. */
+::view-transition-group(root), ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+@media (prefers-reduced-motion: reduce) { .page-curtain { display: none !important; } }

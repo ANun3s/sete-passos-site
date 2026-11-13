@@ -1,0 +1,5 @@
+/* Fichas: keep only the library shortcut; the results gallery was removed. */
+.records-shortcut { margin-top: 1rem; }
+@media print {
+  .records-shortcut { display: none; }
+}

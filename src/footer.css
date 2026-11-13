@@ -1,0 +1,57 @@
+/* Monumental brand + useful columns, adapted from the global Hermes footer. */
+.site-footer { position: relative; overflow: hidden; background-color: var(--paper); color: var(--ink); border-top: 1px solid var(--line); }
+.footer-landscape { position: relative; height: clamp(280px, 33vw, 440px); overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 50% 0%, rgb(137 200 238 / 12%), transparent 70%); }
+.footer-emblem { position: absolute; width: clamp(230px, 28vw, 380px); height: auto; left: 50%; top: 0; transform: translateX(-50%); mix-blend-mode: multiply; opacity: .12; mask-image: linear-gradient(#000 45%, transparent 94%); -webkit-mask-image: linear-gradient(#000 45%, transparent 94%); }
+.footer-watermark { position: absolute; width: 100%; text-align: center; bottom: -.06em; font-size: clamp(4rem, 15.5vw, 14rem); line-height: 1.1; font-weight: 500; letter-spacing: -.075em; white-space: nowrap; color: rgb(7 30 60 / 9%); }
+.footer-content { position: relative; }
+.footer-grid { display: grid; grid-template-columns: 1.15fr 1fr 1fr 1.25fr; gap: 3rem; padding-block: 1.5rem 4rem; }
+.footer-logo { display: grid; place-items: center; width: 4rem; height: 4rem; background: var(--white); border-radius: 1rem; }
+.footer-logo img { width: 3.25rem; height: auto; }
+.footer-signature { margin-top: 1.25rem; font-size: 1rem; line-height: 1.5; }
+.footer-signature em { font-size: 1.5em; color: var(--ink); }
+.footer-note { margin-top: .875rem; font-size: .625rem; color: var(--muted); }
+.footer-eyebrow { font-size: .5625rem; letter-spacing: .1rem; color: var(--muted); }
+.footer-grid h2 { font-family: var(--serif); font-size: 1.75rem; letter-spacing: -.025em; margin-top: 1rem; }
+.footer-links ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .75rem; line-height: 1.5; color: var(--muted); text-underline-offset: .25rem; transition: color .2s ease; }
+.footer-links a:hover { color: var(--navy); text-decoration: underline; }
+.footer-contact > p:not(.footer-eyebrow) { margin-top: 1.25rem; font-size: .8125rem; line-height: 1.8; color: var(--muted); }
+.footer-contact .glass { margin-top: 1.5rem; padding-inline: 1rem; gap: .75rem; font-size: .6875rem; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 2rem; border-top: 1px solid var(--line); padding-block: 1.75rem; }
+.footer-bottom p { font-size: .625rem; line-height: 1.7; color: var(--muted); }
+.footer-back { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 1rem; font-size: .6875rem; white-space: nowrap; }
+.footer-back:hover { text-decoration: underline; text-underline-offset: .3rem; }
+.footer-back .icon { width: 1rem; height: 1rem; }
+.site-footer :focus-visible { outline-color: var(--navy); }
+
+@media (max-width: 1100px) {
+  .footer-grid { gap: 1.5rem; }
+  .footer-grid h2 { font-size: 1.5rem; }
+}
+@media (max-width: 800px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem 2rem; }
+  .footer-brand { grid-row: span 2; }
+  .footer-contact { grid-column: 1 / -1; text-align: center; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .footer-bottom { flex-wrap: wrap; gap: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .footer-landscape { height: 240px; }
+  .footer-grid { padding-block: 1.5rem 2rem; gap: 2.5rem 1rem; }
+  .footer-brand { grid-column: 1 / -1; grid-row: auto; text-align: center; }
+  .footer-logo { margin-inline: auto; }
+  .footer-links { min-width: 0; }
+  .footer-links a { font-size: .6875rem; }
+  .footer-grid h2 { font-size: 1.5rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 1rem; padding-block: 1.5rem; }
+}
+
+/* Compact editorial footer tuning stays with the footer rules in production bundles. */
+.footer-landscape { height: clamp(180px, 22vw, 300px); }
+.footer-emblem { width: clamp(180px, 22vw, 280px); }
+.footer-eyebrow, .footer-note, .footer-bottom p { font-size: .75rem; line-height: 1.7; }
+.footer-links a, .footer-contact > p:not(.footer-eyebrow), .footer-back, .footer-contact .glass { font-size: .875rem; }
+.footer-grid { gap: 2rem; padding-block: 2rem 3rem; }
+@media (max-width: 600px) {
+  .footer-grid { column-gap: 1rem; }
+  .footer-landscape { height: 180px; }
+}

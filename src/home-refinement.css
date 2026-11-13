@@ -1,0 +1,129 @@
+/* Homepage refinement: preserve the clinic's editorial type and soften the surfaces. */
+#page-content[data-page="inicio"] .hero {
+  min-height: calc(100svh - 5.5rem);
+  padding-block: clamp(3rem, 5vw, 4rem);
+}
+
+#page-content[data-page="inicio"] .card-swap {
+  --swap-tile: linear-gradient(150deg, #304b66, #1b334d 72%, #142a42);
+  --swap-shadow: 0 24px 48px -30px rgb(3 19 39 / 40%), 0 8px 20px -14px rgb(3 19 39 / 24%);
+  --swap-badge: #12263c;
+  --swap-radius: 18px;
+}
+
+#page-content[data-page="inicio"] .values-strip {
+  background: var(--ice);
+}
+
+#page-content[data-page="inicio"] .home-preview-visual {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--paper);
+  box-shadow: 0 16px 36px -28px rgb(7 30 60 / 28%);
+}
+
+#page-content[data-page="inicio"] .home-preview-link {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  border-color: var(--line);
+  transition: transform 180ms cubic-bezier(.23, 1, .32, 1), background-color 180ms ease, border-color 180ms ease;
+}
+
+#page-content[data-page="inicio"] .home-preview-link[data-active="true"] {
+  border-color: rgb(49 92 128 / 35%);
+  background: #f6f9fc;
+}
+
+#page-content[data-page="inicio"] .home-preview-link[data-active="true"] .preview-index {
+  color: #315c80;
+}
+
+#page-content[data-page="inicio"] .home-preview-link:hover {
+  padding-inline: 1.2rem;
+  background: #f6f9fc;
+  transform: translateY(-2px);
+}
+
+#page-content[data-page="inicio"] .essence-section {
+  background: var(--paper);
+}
+
+#page-content[data-page="inicio"] .essence-grain {
+  display: none;
+}
+
+#page-content[data-page="inicio"] .contact-section {
+  background: #edf4f9;
+  background-image: none;
+}
+
+#page-content[data-page="inicio"] .glass-primary {
+  transition: transform 180ms cubic-bezier(.23, 1, .32, 1), border-color 180ms ease, box-shadow 180ms ease;
+}
+
+#page-content[data-page="inicio"] .glass-primary:hover {
+  transform: translateY(-1px);
+}
+
+#page-content[data-page="inicio"] .glass-primary:active {
+  transform: scale(.975);
+  transition-duration: 90ms;
+}
+
+@media (min-width: 801px) {
+  #page-content[data-page="inicio"] .site-header .header-inner {
+    flex-wrap: wrap;
+  }
+
+  #page-content[data-page="inicio"] .site-header .main-nav {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+
+  #page-content[data-page="inicio"] .site-header .main-nav > a {
+    white-space: normal;
+  }
+
+  #page-content[data-page="inicio"] .site-header .nav-cta {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  #page-content[data-page="inicio"] .site-header .nav-cta > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+#page-content[data-page="inicio"] .care-section .section-heading h2,
+#page-content[data-page="inicio"] .faq-section .section-heading h2 {
+  margin-top: 0;
+}
+
+#page-content[data-page="inicio"] .home-previews-heading h2 {
+  max-width: 11ch;
+}
+
+@media (max-width: 700px) {
+  #page-content[data-page="inicio"] .hero {
+    min-height: 0;
+  }
+
+  #page-content[data-page="inicio"] .home-preview-link:hover {
+    padding-inline: .6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #page-content[data-page="inicio"] .home-preview-link,
+  #page-content[data-page="inicio"] .glass-primary {
+    transition: none;
+  }
+
+  #page-content[data-page="inicio"] .home-preview-link:hover,
+  #page-content[data-page="inicio"] .glass-primary:hover,
+  #page-content[data-page="inicio"] .glass-primary:active {
+    transform: none;
+  }
+}

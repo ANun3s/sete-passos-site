@@ -1,0 +1,26 @@
+.contact-dialog { color: var(--navy); background: var(--white); border: 1px solid var(--line); border-radius: 1.5rem; width: min(34rem, calc(100% - 2rem)); max-height: calc(100dvh - 2rem); padding: 2.5rem; overscroll-behavior: contain; box-shadow: 0 24px 96px rgb(5 22 46 / 20%); }
+.contact-dialog::backdrop { background: rgb(5 22 46 / 48%); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.dialog-close { position: absolute; right: 1rem; top: 1rem; min-height: 2.75rem; width: 2.75rem; padding: 0; font-size: 1.5rem; font-weight: 400; }
+.contact-dialog > .section-label { margin-top: .5rem; }
+.contact-dialog h2 { font-size: 2.75rem; margin-top: 1.5rem; }
+.contact-dialog > p:not(.section-label) { color: var(--muted); font-size: .8125rem; line-height: 1.8; margin-top: .75rem; }
+.contact-dialog .demo-notice { background: var(--paper); border-radius: .75rem; padding: 1rem; font-size: .6875rem; margin-block: 1.25rem; }
+.demo-notice strong { color: var(--navy); font-weight: 500; }
+.contact-dialog fieldset { padding: 0; border: 0; margin: 0; }
+.contact-dialog legend { font-size: .8125rem; font-weight: 500; margin-bottom: .75rem; }
+.interest-option { display: flex; align-items: center; gap: .75rem; border: 1px solid var(--line); border-radius: .75rem; padding: .875rem 1rem; min-height: 3rem; margin-bottom: .5rem; font-size: .8125rem; cursor: pointer; transition: background .2s ease; }
+.interest-option:has(input:checked) { background: var(--ice); border-color: #7695af; }
+.interest-option input { accent-color: var(--navy); width: 1rem; height: 1rem; margin: 0; flex-shrink: 0; }
+.prepare-button { width: 100%; margin-top: .75rem; }
+.message-result { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.message-result label { display: block; font-size: .8125rem; margin-bottom: .625rem; font-weight: 500; }
+.message-result textarea { width: 100%; resize: vertical; min-height: 7rem; padding: 1rem; border: 1px solid #8ea1b5; border-radius: .75rem; color: var(--navy); background: var(--paper); font-size: .8125rem; line-height: 1.7; }
+.copy-button { margin-top: .75rem; width: 100%; }
+.copy-button:disabled { opacity: .6; cursor: wait; }
+.copy-status { font-size: .6875rem; line-height: 1.7; color: var(--muted); margin-top: .75rem; }
+@media (max-width: 600px) {
+  .contact-dialog { padding: 1.5rem; }
+  .contact-dialog h2 { font-size: 2.5rem; }
+  .dialog-close { right: .75rem; top: .75rem; }
+  .contact-dialog > .section-label { max-width: calc(100% - 2.5rem); font-size: .5rem; }
+}

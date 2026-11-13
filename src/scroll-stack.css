@@ -1,0 +1,9 @@
+/* Stable section structure. No pinning, overlapping panels or scroll spacers. */
+[data-scroll-stack], [data-stack-slot], .scroll-stack-card { position: relative; display: flow-root; }
+[data-stack-slot] + [data-stack-slot] { margin-block-start: 0; }
+div.scroll-stack-card { background: var(--white); }
+@media print {
+  .site-header, .skip-link { display: none !important; }
+  .care-card, .tilted-card-inner { transform: none !important; }
+  .care-card { break-inside: avoid; }
+}

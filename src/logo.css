@@ -1,0 +1,62 @@
+/* Only the alpha silhouette moves. The layout/perspective surface stays invisible. */
+.logo-scene {
+  --logo-silhouette: url('/assets/sete-passos-mockup-transparente.png');
+  width: min(100%, 48rem);
+  aspect-ratio: 1658 / 949;
+  position: relative;
+  perspective: 900px;
+  margin: 0 auto;
+}
+.logo-emblem {
+  display: block;
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  /* No filter, opacity, mask or clipping here: those flatten the depth layers. */
+}
+.hero-logo {
+  width: 100%;
+  height: auto;
+  position: relative;
+  pointer-events: none;
+  filter: drop-shadow(var(--shadow-x, 0px) var(--shadow-y, 2px) 3px rgb(5 22 46 / 18%));
+}
+.logo-edge, .logo-shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-mask-image: var(--logo-silhouette);
+  mask-image: var(--logo-silhouette);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-mode: alpha;
+  display: none;
+}
+.logo-edge {
+  background: linear-gradient(160deg, #1b527b, var(--navy-deep) 65%, #12385a);
+  transform: translate3d(0, calc(var(--slice) * .2px), calc(var(--slice) * -1px));
+}
+.logo-shine {
+  transform: translateZ(.2px);
+  background: radial-gradient(ellipse at var(--light-x, 50%) var(--light-y, 50%), rgb(255 255 255 / 75%), transparent 55%);
+  opacity: var(--light, 0);
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  [data-logo-ready="true"] .logo-edge,
+  [data-logo-ready="true"] .logo-shine { display: block; }
+  .logo-emblem:is([data-active], [data-settling]) {
+    will-change: transform;
+    transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  }
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .logo-emblem { transform: none !important; }
+  .hero-logo { filter: none; }
+}
+@media print {
+  .logo-emblem { transform: none !important; }
+  .logo-edge, .logo-shine { display: none !important; }
+  .hero-logo { filter: none; }
+}
