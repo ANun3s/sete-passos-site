@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /login.html
+Disallow: /perfil.html
+Disallow: /admin.html
+Disallow: /fichas.html
+Disallow: /api/
+
+Sitemap: https://sete-passos.pages.dev/sitemap.xml

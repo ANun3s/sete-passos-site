@@ -1,0 +1,11 @@
+# Sete Passos
+
+> Site institucional da Sete Passos, com informações públicas sobre fisioterapia, estética avançada, equipe e histórias de atendimento.
+
+## Páginas públicas
+- [Início](https://sete-passos.pages.dev/): visão geral dos serviços e formas de contato.
+- [Sobre](https://sete-passos.pages.dev/sobre.html): apresentação da Sete Passos e de suas áreas de cuidado.
+- [Nossa equipe](https://sete-passos.pages.dev/equipe.html): apresentação da equipe.
+- [Casos de sucesso](https://sete-passos.pages.dev/historias.html): histórias publicadas com autorização.
+
+Informações de saúde no site são institucionais e não substituem uma avaliação profissional.
