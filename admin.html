@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071e3c" />
+    <meta name="description" content="Área administrativa da Sete Passos." />
+    <title>Administração — Sete Passos</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="preload" href="/fonts/dm-sans-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/instrument-serif-italic.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/logo.css" />
+    <link rel="stylesheet" href="/src/footer.css" />
+    <link rel="stylesheet" href="/src/navigation.css" />
+    <link rel="stylesheet" href="/src/motion.css" />
+    <link rel="stylesheet" href="/src/contact.css" />
+    <link rel="stylesheet" href="/src/portal.css" />
+    <link rel="stylesheet" href="/src/page-curtain.css" />
+    <link rel="stylesheet" href="/src/interface.css" />
+    <link rel="stylesheet" href="/src/care-cards.css" />
+    <link rel="stylesheet" href="/src/result-cards.css" />
+    <link rel="stylesheet" href="/src/scroll-stack.css" />
+    <link rel="stylesheet" href="/src/profile.css" />
+    <link rel="stylesheet" href="/src/admin.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body id="inicio" class="page-curtain-stage">
+    <div id="page-content" class="page-curtain-content" data-page="admin">
+      <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+      <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="arrow-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12" /></symbol>
+        <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></symbol>
+        <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" /></symbol>
+      </svg>
+      <header class="site-header">
+        <div class="header-inner container">
+          <a class="brand" href="/index.html" aria-label="Sete Passos — início">
+            <img src="/assets/simbolo-sete-passos-240.webp" alt="" width="48" height="44" />
+            <span class="brand-type">sete passos<span>FÍSIO & ESTÉTICA AVANÇADA</span></span>
+          </a>
+          <button class="menu-toggle glass" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu"><span></span><span></span></button>
+          <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+            <a href="/index.html">Início</a>
+            <a href="/equipe.html">Nossa equipe</a>
+            <a href="/index.html#cuidado">Nosso cuidado</a>
+            <a href="/admin.html" data-admin-link aria-current="page">Administração</a>
+            <a href="/login.html">Login</a>
+            <a class="glass nav-cta" href="/index.html#contato"><span>Vamos conversar</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right" /></svg></a>
+          </nav>
+        </div>
+        <div class="reading-progress" aria-hidden="true"></div>
+      </header>
+      <main id="principal" class="admin-main container" tabindex="-1" aria-busy="true">
+        <div class="admin-check" role="status" aria-live="polite">
+          <span class="section-label">ESPAÇO RESERVADO</span>
+          <h1>Verificando <em>acesso.</em></h1>
+          <p>Esta área só aparece depois da confirmação da sua conta.</p>
+        </div>
+        <noscript><p class="admin-error">Ative o JavaScript para verificar sua sessão e acessar esta área.</p></noscript>
+      </main>
+      <footer class="admin-footer container"><span>Sete Passos · área administrativa</span><a href="/index.html">Voltar ao site</a></footer>
+    </div>
+    <div class="page-curtain" id="page-curtain" aria-hidden="true" data-phase="idle" hidden>
+      <div class="curtain-copy"><span class="curtain-brand">SETE PASSOS</span><p id="page-curtain-title"></p><span class="curtain-caption">CUIDADO EM CADA PASSO</span></div>
+      <span class="curtain-rule" aria-hidden="true"></span>
+    </div>
+    <p id="page-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+    <p id="navigation-error" class="navigation-error" role="alert" hidden></p>
+  </body>
+</html>

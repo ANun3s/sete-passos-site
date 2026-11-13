@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071e3c" />
+    <meta name="description" content="Seu perfil Sete Passos: informações pessoais, fichas e segurança da conta." />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Meu perfil — Sete Passos</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="preload" href="/fonts/dm-sans-regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/instrument-serif-italic.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/logo.css" />
+    <link rel="stylesheet" href="/src/footer.css" />
+    <link rel="stylesheet" href="/src/navigation.css" />
+    <link rel="stylesheet" href="/src/motion.css" />
+    <link rel="stylesheet" href="/src/contact.css" />
+    <link rel="stylesheet" href="/src/portal.css" />
+    <link rel="stylesheet" href="/src/page-curtain.css" />
+    <link rel="stylesheet" href="/src/interface.css" />
+    <link rel="stylesheet" href="/src/care-cards.css" />
+    <link rel="stylesheet" href="/src/result-cards.css" />
+    <link rel="stylesheet" href="/src/scroll-stack.css" />
+    <link rel="stylesheet" href="/src/profile.css" />
+    <link rel="stylesheet" href="/src/admin.css" />
+    <link rel="stylesheet" href="/src/about.css" />
+    <link rel="stylesheet" href="/src/stories.css" />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body id="inicio" class="page-curtain-stage">
+    <div id="page-content" class="page-curtain-content" data-page="perfil">
+    <a class="skip-link" href="#principal">Pular para o conteúdo</a>
+    <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="arrow-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12" /></symbol>
+      <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" /></symbol>
+      <symbol id="arrow-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" /></symbol>
+      <symbol id="spark" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M5 19 19 5" /></symbol>
+    </svg>
+
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="brand" href="/index.html" aria-label="Sete Passos — início">
+          <img src="/assets/simbolo-sete-passos-240.webp" alt="" width="48" height="44" />
+          <span class="brand-type">sete passos<span>FÍSIO & ESTÉTICA AVANÇADA</span></span>
+        </a>
+        <button class="menu-toggle glass" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu"><span></span><span></span></button>
+        <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+          <a href="/index.html">Início</a>
+          <a href="/sobre.html">Sobre</a>
+          <a href="/historias.html">Casos de sucesso</a>
+          <a href="/equipe.html">Nossa equipe</a>
+          <a href="/perfil.html" aria-current="page">Perfil</a>
+          <a class="glass nav-cta" href="/index.html#contato"><span>Vamos conversar</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right" /></svg></a>
+        </nav>
+      </div>
+      <div class="reading-progress" aria-hidden="true"></div>
+    </header>
+
+    <main id="principal" class="portal-main profile-main container" tabindex="-1">
+      <header class="profile-heading">
+        <p class="section-label"><span class="tiny-cross" aria-hidden="true">+</span> SUA CONTA</p>
+        <h1>Meu <em>perfil</em></h1>
+        <p class="portal-lead">Seus dados, suas fichas e a segurança da sua conta.<br class="profile-desktop-break" /> Tudo no seu espaço de cuidado.</p>
+      </header>
+
+      <!-- Private values stay empty and hidden until the session API succeeds. -->
+      <div id="profile-root" class="profile-root" aria-busy="true">
+        <noscript>
+          <section class="profile-nojs profile-load-state" aria-labelledby="profile-nojs-title">
+            <h2 id="profile-nojs-title">Ative o JavaScript para acessar seu perfil</h2>
+            <p>O JavaScript é necessário para verificar sua sessão e carregar seus dados pessoais com segurança. Nenhuma informação da sua conta é exibida nesta página sem essa verificação.</p>
+            <a class="text-link" href="/login.html">Ir para o login<svg class="icon" aria-hidden="true"><use href="#arrow-right" /></svg></a>
+          </section>
+        </noscript>
+
+        <div id="profile-loading" class="profile-loading" role="status" aria-live="polite" aria-atomic="true">
+          <p class="profile-loading-label">Carregando seu perfil com segurança…</p>
+          <div class="profile-skeleton" aria-hidden="true">
+            <div class="profile-skeleton-identity"><span class="profile-skeleton-avatar"></span><span class="profile-skeleton-line"></span><span class="profile-skeleton-line profile-skeleton-line-short"></span></div>
+            <div class="profile-skeleton-details"><span class="profile-skeleton-line"></span><span class="profile-skeleton-row"></span><span class="profile-skeleton-row"></span><span class="profile-skeleton-row"></span></div>
+          </div>
+        </div>
+
+        <section id="profile-load-error" class="profile-load-state" aria-labelledby="profile-load-error-title" hidden>
+          <h2 id="profile-load-error-title">Não foi possível carregar seu perfil</h2>
+          <p>Seus dados não foram exibidos. Verifique sua conexão e tente novamente.</p>
+          <div class="profile-actions"><button class="glass" type="button" data-profile-retry>Tentar novamente</button><a class="text-link" href="/login.html">Ir para o login</a></div>
+        </section>
+
+        <div id="profile-content" hidden>
+          <div class="profile-feedback">
+            <p id="profile-status" class="profile-message" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p id="profile-error" class="profile-message profile-message-error" role="alert" tabindex="-1" hidden></p>
+          </div>
+          <div class="profile-layout">
+            <aside class="profile-summary" aria-labelledby="profile-greeting">
+              <div class="profile-avatar-editor">
+                <img class="profile-avatar" data-profile-avatar src="/assets/avatar-default.svg" alt="Foto do perfil" width="144" height="144" />
+                <button id="avatar-pencil" class="avatar-pencil" type="button" aria-label="Editar foto do perfil" aria-expanded="false" aria-controls="avatar-edit-menu">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5 4 4M4 20l5-1L20 8a2.8 2.8 0 0 0-4-4L5 15z" /></svg>
+                </button>
+                <div id="avatar-edit-menu" class="avatar-edit-menu" hidden inert>
+                  <button id="avatar-edit" type="button">Editar imagem<span aria-hidden="true">↗</span></button>
+                </div>
+              </div>
+              <div class="profile-identity">
+                <p class="profile-eyebrow">SEU ESPAÇO DE CUIDADO</p>
+                <h2 id="profile-greeting">Olá,<br /><span id="profile-name"></span></h2>
+                <p class="profile-summary-copy">Um lugar para cuidar dos seus próximos passos.</p>
+              </div>
+
+              <dialog id="avatar-dialog" class="avatar-dialog" aria-labelledby="avatar-dialog-title">
+                <header class="avatar-dialog-heading">
+                  <h2 id="avatar-dialog-title">Selecione uma imagem</h2>
+                  <button id="avatar-dialog-close" class="avatar-dialog-close" type="button" aria-label="Fechar seleção de imagem"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+                </header>
+                <p id="avatar-dialog-status" class="profile-message" role="status" aria-live="polite"></p>
+                <p id="avatar-dialog-error" class="profile-message profile-message-error" role="alert" tabindex="-1" hidden></p>
+              <form id="avatar-form" class="profile-avatar-form" method="post" enctype="multipart/form-data" aria-label="Atualizar foto do perfil">
+                <div class="profile-file-control">
+                  <input id="avatar-file" class="profile-file-input" name="photo" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="avatar-help" aria-label="Enviar imagem" />
+                  <label class="profile-secondary profile-file-label" for="avatar-file"><svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M27 18V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v17a3 3 0 0 0 3 3h11M4 22l8-8 7 7 4-4M25 22v8m-4-4h8"/><circle cx="21" cy="10" r="2"/></svg><span>Enviar imagem</span></label>
+                </div>
+                <p id="avatar-help" class="profile-help">JPEG, PNG ou WebP, até 5 MB.</p>
+                <div id="avatar-preview" class="profile-avatar-preview" hidden>
+                  <p class="profile-preview-label">Prévia da nova foto</p>
+                  <img class="profile-avatar profile-preview-image" data-avatar-preview src="/assets/avatar-default.svg" alt="Prévia da foto selecionada" width="112" height="112" />
+                  <p class="profile-help">A foto atual só será substituída depois que você salvar.</p>
+                  <div class="profile-actions profile-avatar-actions">
+                    <button id="avatar-save" class="glass" type="submit">Salvar foto</button>
+                    <button id="avatar-cancel" class="profile-text-button" type="button">Cancelar seleção</button>
+                  </div>
+                </div>
+                <section class="avatar-recent-section" aria-labelledby="avatar-recents-title">
+                  <h3 id="avatar-recents-title">Avatares recentes</h3>
+                  <p class="profile-help">Até 6 imagens enviadas durante esta visita.</p>
+                  <div id="avatar-recents" class="avatar-recents"></div>
+                  <p id="avatar-recents-empty" class="profile-help avatar-recents-empty">Suas imagens aparecerão aqui depois de salvar uma foto.</p>
+                </section>
+                <button id="avatar-remove" class="profile-text-button profile-remove" type="button" disabled>Remover foto</button>
+              </form>
+              </dialog>
+
+              <div class="profile-session">
+                <button id="profile-logout" class="profile-text-button" type="button">Sair da conta</button>
+                <p class="profile-help">Encerra o acesso neste navegador.</p>
+              </div>
+            </aside>
+
+            <div class="profile-details">
+              <section class="profile-section" aria-labelledby="personal-title">
+                <header class="profile-section-heading"><h2 id="personal-title">Informações pessoais</h2><p>Mantenha seus dados de acesso atualizados.</p></header>
+
+                <details id="profile-name-details" class="profile-disclosure profile-info-row">
+                  <summary><span class="profile-row-copy"><span class="profile-field-label">Nome</span><span class="profile-row-description">O nome que aparece no seu perfil.</span></span><span class="profile-edit-label">Editar nome<span class="expand-icon" aria-hidden="true"></span></span></summary>
+                  <form id="profile-name-form" class="profile-form" method="post" aria-label="Editar nome">
+                    <div class="profile-field"><label for="profile-name-input">Nome</label><input id="profile-name-input" name="name" type="text" autocomplete="name" maxlength="100" aria-describedby="profile-name-help" required /><p id="profile-name-help" class="profile-help">Use o nome pelo qual você prefere ser chamado.</p></div>
+                    <div class="profile-actions"><button class="glass" type="submit">Salvar alterações</button><button class="profile-text-button" type="button" data-cancel-name>Cancelar</button></div>
+                  </form>
+                </details>
+
+                <div class="profile-info-row profile-email-row">
+                  <div class="profile-row-copy"><p class="profile-field-label">CPF</p><p id="profile-cpf" class="profile-field-value"></p></div>
+                  <form id="profile-cpf-form" class="profile-form" method="post" aria-label="Vincular CPF à conta">
+                    <fieldset id="profile-cpf-fields" disabled>
+                      <legend class="sr-only">CPF da conta</legend>
+                      <div class="profile-field"><label for="profile-cpf-input">CPF</label><input id="profile-cpf-input" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14" autocapitalize="off" spellcheck="false" aria-describedby="profile-cpf-help" required /><p id="profile-cpf-help" class="profile-help">Informe um CPF válido. Depois de vinculado, ele será usado para entrar na conta.</p></div>
+                      <div class="profile-actions"><button class="glass" type="submit">Vincular CPF</button></div>
+                    </fieldset>
+                  </form>
+                </div>
+              </section>
+
+              <section class="profile-section" aria-labelledby="profile-records-title">
+                <header class="profile-section-heading"><h2 id="profile-records-title">Minhas fichas</h2></header>
+                <div class="profile-empty-state">
+                  <svg class="profile-document-icon icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 3h11l6 6v20H8zM19 3v7h6M12 16h9m-9 5h9" /></svg>
+                  <div><p class="profile-empty-title">Você ainda não possui fichas vinculadas à sua conta</p><p class="profile-help">Quando houver fichas associadas a esta conta, elas aparecerão aqui.</p></div>
+                </div>
+              </section>
+
+              <section class="profile-section" aria-labelledby="profile-security-title">
+                <header class="profile-section-heading"><h2 id="profile-security-title">Segurança</h2><p>Gerencie sua senha e as opções de acesso à conta.</p></header>
+                <div class="profile-security-row">
+                  <p class="profile-field-label">Senha</p>
+                  <p id="password-state" class="profile-field-value"></p>
+                  <details id="profile-password-details" class="profile-disclosure">
+                    <summary><span>Alterar senha</span><span class="expand-icon" aria-hidden="true"></span></summary>
+                    <form id="profile-password-form" class="profile-form" method="post" aria-label="Alterar senha" aria-describedby="password-policy password-sessions-note">
+                      <div class="profile-field"><label for="profile-current-password">Senha atual</label><div class="profile-password-field"><input id="profile-current-password" name="currentPassword" type="password" autocomplete="current-password" maxlength="128" required /><button class="profile-password-toggle" type="button" data-profile-password-toggle="profile-current-password" aria-controls="profile-current-password" aria-pressed="false">Mostrar senha</button></div></div>
+                      <div class="profile-field"><label for="profile-new-password">Nova senha</label><div class="profile-password-field"><input id="profile-new-password" name="newPassword" type="password" autocomplete="new-password" minlength="12" maxlength="128" aria-describedby="password-policy" required /><button class="profile-password-toggle" type="button" data-profile-password-toggle="profile-new-password" aria-controls="profile-new-password" aria-pressed="false">Mostrar senha</button></div><p id="password-policy" class="profile-help">Use entre 12 e 128 caracteres.</p></div>
+                      <div class="profile-field"><label for="profile-confirm-password">Confirmar nova senha</label><div class="profile-password-field"><input id="profile-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="128" aria-describedby="profile-confirm-help" required /><button class="profile-password-toggle" type="button" data-profile-password-toggle="profile-confirm-password" aria-controls="profile-confirm-password" aria-pressed="false">Mostrar senha</button></div><p id="profile-confirm-help" class="profile-help">Digite a nova senha mais uma vez para confirmar.</p></div>
+                      <p id="password-sessions-note" class="profile-help profile-security-note">Ao salvar a nova senha, as outras sessões da sua conta serão encerradas.</p>
+                      <div class="profile-actions"><button class="glass" type="submit">Salvar nova senha</button><button class="profile-text-button" type="button" data-cancel-password>Cancelar</button></div>
+                    </form>
+                  </details>
+                </div>
+                <div class="profile-recovery"><a class="text-link" href="/login.html?view=recover">Recuperar acesso</a><p id="recovery-availability" class="profile-help"></p></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="site-footer" aria-label="Rodapé Sete Passos">
+      <div class="footer-landscape" aria-hidden="true">
+        <img class="footer-emblem" src="/assets/simbolo-sete-passos-480.webp" alt="" width="569" height="523" loading="lazy" />
+        <p class="footer-watermark">sete passos</p>
+      </div>
+      <div class="container footer-content">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="footer-logo" href="/index.html#inicio" aria-label="Sete Passos — voltar ao início"><img src="/assets/simbolo-sete-passos-240.webp" alt="" width="52" height="48" loading="lazy" /></a>
+            <p class="footer-signature">Cuidar de você.<br /><em>Em cada passo.</em></p>
+            <p class="footer-note">Físio & Estética Avançada</p>
+          </div>
+          <nav class="footer-links" aria-label="Navegação do rodapé">
+            <p class="footer-eyebrow">EXPLORE</p>
+            <h2>A Sete Passos</h2>
+            <ul><li><a href="/index.html#inicio">Início</a></li><li><a href="/sobre.html">Sobre a Sete Passos</a></li><li><a href="/historias.html">Casos de sucesso</a></li><li><a href="/equipe.html">Nossa equipe</a></li><li><a href="/index.html#cuidado">Nosso cuidado</a></li><li><a href="/index.html#essencia">A essência</a></li><li><a href="/index.html#duvidas">Dúvidas frequentes</a></li></ul>
+          </nav>
+          <nav class="footer-links" aria-label="Áreas do cuidado">
+            <p class="footer-eyebrow">CUIDADO</p>
+            <h2>Para você</h2>
+            <ul><li><a href="/index.html#contato" data-contact="Fisioterapia">Fisioterapia</a></li><li><a href="/index.html#contato" data-contact="Estética avançada">Estética avançada</a></li><li><a href="/index.html#contato" data-contact>Primeiro contato</a></li></ul>
+          </nav>
+          <div class="footer-contact">
+            <p class="footer-eyebrow">SEU PRÓXIMO PASSO</p>
+            <h2>Vamos conversar?</h2>
+            <p>Um espaço para você<br />começar no seu tempo.</p>
+            <a class="glass" href="/index.html#contato" data-contact><span>Preparar mensagem</span><svg class="icon" aria-hidden="true"><use href="#arrow-up-right" /></svg></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Sete Passos — Físio e Estética Avançada</p>
+          <p>Protótipo de interface.<br />Conteúdo sujeito à validação da clínica.</p>
+          <a class="footer-back" href="#inicio">Voltar ao início<svg class="icon" aria-hidden="true"><use href="#arrow-up-right" /></svg></a>
+        </div>
+      </div>
+    </footer>
+
+    <dialog id="contact-dialog" class="contact-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <button class="dialog-close glass" type="button" aria-label="Fechar contato" autofocus><span aria-hidden="true">×</span></button>
+      <p class="section-label">UM PRIMEIRO PASSO</p>
+      <h2 id="dialog-title">Vamos <em>conversar?</em></h2>
+      <p id="dialog-description">Escolha o assunto e prepare uma mensagem para a Sete Passos.</p>
+      <p class="demo-notice"><strong>Demonstração de contato.</strong> Nenhum dado é enviado e nenhum agendamento é realizado. Os canais oficiais ainda serão adicionados.</p>
+      <form id="contact-form">
+        <fieldset><legend>O que você gostaria de conhecer?</legend>
+          <label class="interest-option"><input type="radio" name="interest" value="Fisioterapia" required /><span>Fisioterapia</span></label>
+          <label class="interest-option"><input type="radio" name="interest" value="Estética avançada" /><span>Estética avançada</span></label>
+          <label class="interest-option"><input type="radio" name="interest" value="Ainda não sei" checked /><span>Ainda não sei por onde começar</span></label>
+        </fieldset>
+        <button class="glass prepare-button" type="submit"><span>Preparar mensagem</span><svg class="icon" aria-hidden="true"><use href="#arrow-right" /></svg></button>
+      </form>
+      <div id="message-result" class="message-result" hidden>
+        <label for="prepared-message">Sua mensagem</label>
+        <textarea id="prepared-message" rows="4" readonly spellcheck="false"></textarea>
+        <button class="glass copy-button" type="button">Copiar mensagem</button>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </dialog>
+    </div>
+    <div class="page-curtain" id="page-curtain" aria-hidden="true" data-phase="idle" hidden>
+      <div class="curtain-copy"><span class="curtain-brand">SETE PASSOS</span><p id="page-curtain-title"></p><span class="curtain-caption">CUIDADO EM CADA PASSO</span></div>
+      <span class="curtain-rule" aria-hidden="true"></span>
+    </div>
+    <p id="page-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+    <p id="navigation-error" class="navigation-error" role="alert" hidden></p>
+  </body>
+</html>

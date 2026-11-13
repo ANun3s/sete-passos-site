@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sete-passos",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-10-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "c0847678519e45caa68c7974cbd2b229"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "SETEPASSOS_STORAGE",
+      "id": "00071fd1ee554dd89cfa789b1fea424a"
+    }
+  ],
+  "vars": {
+    "GOOGLE_CLIENT_ID": "1015013670027-6ul2eog82ib581g5f9cf5vnn65uvndp6.apps.googleusercontent.com"
+  }
+}
